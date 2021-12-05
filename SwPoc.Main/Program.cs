@@ -33,6 +33,7 @@ namespace SwPoc.Main
                     services.AddTransient<ICommand, HelloCommand>();
                     services.AddTransient<ICommand, ExitCommand>();
                     services.AddTransient<ICommand, RunCommand>();
+                    services.AddTransient<ICommand, ChangeParamsCommand>();
                     services.AddTransient<ICommandResolver, CommandResolver>();
                 })
                 .UseSerilog()
