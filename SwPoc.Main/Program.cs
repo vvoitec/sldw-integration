@@ -34,6 +34,7 @@ namespace SwPoc.Main
                     services.AddTransient<ICommand, ExitCommand>();
                     services.AddTransient<ICommand, RunCommand>();
                     services.AddTransient<ICommand, ChangeParamsCommand>();
+                    services.AddTransient<ICommand, StudyCommand>();
                     services.AddTransient<ICommandResolver, CommandResolver>();
                 })
                 .UseSerilog()
