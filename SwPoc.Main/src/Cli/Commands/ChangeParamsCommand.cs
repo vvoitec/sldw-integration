@@ -18,7 +18,8 @@ namespace SwPoc.Main.Cli.Commands
 
         public bool Handle()
         {
-            var app = (new Kernel()).Load(PartPath).SetDimensions();
+            // (new Kernel()).Load(PartPath).SetDimensions().Save();
+            (new Kernel()).Load(PartPath).SaveAsAssembly();
             return true;
         }
     }

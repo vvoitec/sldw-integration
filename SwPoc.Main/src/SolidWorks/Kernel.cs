@@ -68,5 +68,31 @@ namespace SwPoc.Main.SolidWorks
             
             return this;
         }
+
+        public void Save()
+        {
+            int err = 0;
+            int warnings = 0;
+            _swDoc.Save3((int)swSaveAsOptions_e.swSaveAsOptions_Silent, err, warnings);
+            Console.WriteLine("Saved");
+        }
+        
+        public void SaveAsAssembly()
+        {
+            int err = 0;
+            int warnings = 0;
+            
+            // var _swAssembly = _swApp.INewDocument2(
+            //     swUserPreferenceStringValue_e.swDefaultTemplateAssembly.ToString(),
+            //     (int)swDwgPaperSizes_e.swDwgPaperA4size, 
+            //     0, 0
+            //     );
+            var swAssembly = _swApp.INewAssembly();
+            swAssembly.AddComponent5(
+                "part_schema_2.sldprt",
+                (int)swAddComponentConfigOptions_e.swAddComponentConfigOptions_CurrentSelectedConfig, "", false, "", -1, -1, -1
+                );
+            ((IModelDoc2) swAssembly).Save3((int) swSaveAsOptions_e.swSaveAsOptions_Silent, err, warnings);
+        }
     }
 }
